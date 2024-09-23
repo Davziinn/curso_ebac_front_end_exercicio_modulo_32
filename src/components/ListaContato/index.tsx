@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '../redux/store'
 import { removerContato } from '../redux/contatoSlice'
 import ContatoForm from '../ContatoForm'
-import { List, ListItem } from './styles'
+import { List, ListItem, Button, Info } from './styles'
 
 interface Contato {
     id: number
@@ -24,8 +24,12 @@ const ListaContato: React.FC = () => {
         <List>
             {contatos.map((contato: Contato) => (
                 <ListItem key={contato.id}>
-                    {contato.name} - {contato.email} - {contato.phone}
-                    <button onClick={() => handleRemove(contato.id)}>Remover</button>
+                    <Info>
+                        <strong>{contato.name}</strong> 
+                        <span>{contato.email}</span>
+                        <span>{contato.phone}</span>
+                    </Info>
+                    <Button onClick={() => handleRemove(contato.id)}>Remover</Button>
                     <ContatoForm existeContato={contato} />
                 </ListItem>
             ))}

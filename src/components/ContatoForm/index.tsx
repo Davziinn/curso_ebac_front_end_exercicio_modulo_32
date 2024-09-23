@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addContato, editarContato } from '../redux/contatoSlice'
-import { Form, Input } from './styles'
+import { Form, Input, Button } from './styles'
 
 interface Contato {
     id: number
@@ -64,7 +64,7 @@ const ContatoForm: React.FC<ContatoFormProps> = ({ existeContato }) => {
                 placeholder="Telefone"
                 required
             />
-            <button type="submit">{existeContato ? 'Editar' : 'Adicionar'}</button>
+            <Button type="submit">{existeContato ? 'Editar' : 'Adicionar'}</Button>
         </Form>
     )
 }
